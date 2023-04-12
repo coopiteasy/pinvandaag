@@ -14,7 +14,11 @@ This repository contains modules from Pin Vandaag coming from the Odoo app store
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[pos_pinvandaag](pos_pinvandaag/) | 16.0.4 |  | Make payments happen with CCV/WorldLine terminals inside the POS Pinvandaag module
 
 [//]: # (end addons)
 
