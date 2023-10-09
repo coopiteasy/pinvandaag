@@ -94,10 +94,11 @@ odoo.define("pos_pinvandaag.payment", function (require) {
         Poller();
       })
         .then((respData) => {
+          line.set_payment_status("done");
           if (this.continue_on_success) {
+            // continue to the next screen
             Gui.showScreen("ReceiptScreen");
           }
-          line.set_payment_status("done");
           this.pos
             .get_order()
             .selected_paymentline.set_pinvandaag_receipt(respData.Receipt);
@@ -126,7 +127,7 @@ odoo.define("pos_pinvandaag.payment", function (require) {
         order.selected_paymentline.payment_method
           .pinvandaag_confirm_order_on_payment
       );
-      await this._call_pinvandaag({
+      return await this._call_pinvandaag({
         SaleToTerminal: {
           TerminalID: line.payment_method.pinvandaag_terminal_identifier,
           PaymentDetails: {
@@ -135,13 +136,14 @@ odoo.define("pos_pinvandaag.payment", function (require) {
           RequestType: "create",
         },
       })
-        .then((resp) => {
+        .then(async (resp) => {
           // if is success then poll the transaction
           if (resp.Status == "success") {
             const transData = resp.Response;
             line.transaction_id = transData.TransactionID;
             this.transaction_id = transData.TransactionID;
-            this.poll_transaction();
+            await this.poll_transaction();
+            return true;
           }
         })
         .catch((err) => {

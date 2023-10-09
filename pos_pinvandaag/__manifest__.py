@@ -4,7 +4,7 @@
     'name': 'POS Pin Vandaag',
     'author': "Pin Vandaag B.V.",
     'website': 'https://www.pinvandaag.nl',
-    'version': '16.0.4',
+    'version': '16.0.6',
     'category': 'Sales/Point of Sale',
     'sequence': 6,
     'summary': 'Make payments happen with CCV/WorldLine terminals inside the POS Pinvandaag module',

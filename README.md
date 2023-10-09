@@ -18,7 +18,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_pinvandaag](pos_pinvandaag/) | 16.0.4 |  | Make payments happen with CCV/WorldLine terminals inside the POS Pinvandaag module
+[pos_pinvandaag](pos_pinvandaag/) | 16.0.6 |  | Make payments happen with CCV/WorldLine terminals inside the POS Pinvandaag module
 
 [//]: # (end addons)
 

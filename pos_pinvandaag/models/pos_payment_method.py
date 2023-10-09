@@ -142,6 +142,9 @@ class PosPaymentMethod(models.Model):
                 raise ValidationError(_('Response is not ok'))
             # get the response
             response = response.json()
+            # check if transaction status is failed
+            if response['status'] == 'failed':
+                raise ValidationError(_('Transaction failed'))
 
             return {
                 'TerminalID': terminal_id,
